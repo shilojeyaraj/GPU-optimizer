@@ -1,0 +1,24 @@
+# Code owners for GPU-Optimizer.
+# GitHub uses this to auto-request reviews on PRs touching matching paths.
+# Syntax: <pattern> <space> <one or more @usernames>
+# More: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-security/managing-repository-settings/about-code-owners
+
+# Catch-all — owner of last resort
+*                                @shilojeyaraj
+
+# Backend
+/backend/                        @shilojeyaraj
+/ml/                             @shilojeyaraj
+
+# Frontend
+/frontend/                       @shilojeyaraj
+
+# C++ performance layer
+/cpp/                            @shilojeyaraj
+
+# CI, security, and infra
+/.github/                        @shilojeyaraj
+/infra/                          @shilojeyaraj
+/docker-compose.yml              @shilojeyaraj
+/Dockerfile.*                    @shilojeyaraj
+SECURITY.md                      @shilojeyaraj

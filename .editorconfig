@@ -1,0 +1,27 @@
+# EditorConfig — keep line endings and indentation consistent across editors.
+# https://editorconfig.org
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{ts,tsx,js,jsx,json,yml,yaml,md}]
+indent_size = 2
+
+[*.py]
+indent_size = 4
+
+[*.{cpp,hpp,h,c}]
+indent_size = 4
+
+[Makefile]
+indent_style = tab
+
+# Markdown trailing whitespace is sometimes intentional (hard line break)
+[*.md]
+trim_trailing_whitespace = false

@@ -1,0 +1,11 @@
+# Disable blank issues so reporters use the structured templates.
+# Anything that doesn't fit a template gets routed to Discussions.
+blank_issues_enabled: false
+
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/shilojeyaraj/GPU-Optimizer/security/advisories/new
+    about: Report privately. See SECURITY.md for details.
+  - name: Question or design discussion
+    url: https://github.com/shilojeyaraj/GPU-Optimizer/discussions
+    about: For open-ended questions, ideas, or design conversations.

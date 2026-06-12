@@ -1,0 +1,62 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pytorch-autotune"
+version = "0.0.1"
+description = "LLM-powered systems-knob autotuning for PyTorch training"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+authors = [{ name = "Shilo Jeyaraj" }]
+keywords = ["pytorch", "hyperparameter-optimization", "llm", "autotuning", "mlsys"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=2.0",
+    "optuna>=3.0",
+    "pydantic>=2.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+llm = ["anthropic>=0.20", "openai>=1.0"]
+ray = ["ray[tune]>=2.0"]
+hf = ["transformers>=4.30"]
+# Dependencies for the paper experiment workloads (experiments/workloads/*).
+paper = ["transformers>=4.36", "peft>=0.7", "torchvision>=0.15"]
+dev = ["pytest>=7.0", "pytest-cov>=4.0", "ruff>=0.4", "mypy>=1.0", "pre-commit>=3.0"]
+all = ["pytorch-autotune[llm,ray,hf,paper]"]
+
+[project.urls]
+Homepage = "https://github.com/shilojeyaraj/pytorch-autotune"
+Repository = "https://github.com/shilojeyaraj/pytorch-autotune"
+"Bug Tracker" = "https://github.com/shilojeyaraj/pytorch-autotune/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["autotune"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.9"
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

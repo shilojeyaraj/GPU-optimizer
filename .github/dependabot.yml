@@ -1,0 +1,44 @@
+# Dependabot — weekly dependency updates.
+# Groups minor + patch upgrades into a single PR per ecosystem so the review
+# queue stays manageable. Major bumps still come as individual PRs.
+version: 2
+updates:
+  # Python backend
+  - package-ecosystem: pip
+    directory: "/backend"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    labels: ["dependencies", "backend"]
+    groups:
+      python-minor:
+        update-types: ["minor", "patch"]
+
+  # Frontend
+  - package-ecosystem: npm
+    directory: "/frontend"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    labels: ["dependencies", "frontend"]
+    groups:
+      js-minor:
+        update-types: ["minor", "patch"]
+
+  # GitHub Actions versions in workflows
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    labels: ["dependencies", "ci"]
+
+  # Base images in Dockerfiles
+  - package-ecosystem: docker
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    labels: ["dependencies", "docker"]
